@@ -24,7 +24,7 @@ figcaption.ratings a:hover
     }
 .divider 
 {
-    border-top:1px solid rgba(0,0,0,0.1);
+    border-top:1px solid rgba(0,0,0,0);
     }
 .emphasis 
 {
@@ -50,7 +50,7 @@ span.tags
 {
     background-color: #34495e;    
     box-shadow: none;
-    -webkit-box-shadow: none;
+    //-webkit-box-shadow: none;
     width: 250px;
     margin-left: -125px;
     left: 50%;
