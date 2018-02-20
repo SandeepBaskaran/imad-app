@@ -59,6 +59,42 @@
             </div>
     	 </div>                 
 		</div>
+		<form action="model/encrypt.php" method="post" enctype="multipart/form-data">
+           			<div class="form-group">
+					<div class="file-area">
+        
+					<input type="file" name="file" id="file" required="required" />
+					<div class="file-dummy" style="background-color:blue">
+					<div class="success" style="color:white">Great, your files are selected. Keep on.
+					</div>
+					<div class="default" style="color:white">Drag your files here!</div>
+					</div>
+					</div>Choose a key:<br>
+            		<input type="text" name="key" id="key" placeholder="Key to encrypt" required="">
+            		</div>
+  
+					<div class="form-group">
+						<center><button type="submit">Encrypt</button></center>
+					</div>
+				</form>
+
+          		<form action="model/decrypt.php" method="post" enctype="multipart/form-data">
+          			<div class="form-group">
+          			<div class="file-area">
+        
+            		<input type="file" name="file" id="file" required="required" />
+            		<div class="file-dummy" style="background-color:blue">
+              		<div class="success" style="color:white">Great, your files are selected. Keep on.</div>
+              		<div class="default" style="color:white">Drag your files here. The file must have .nash extension</div>
+            		</div>
+            		</div>Choose a key:<br>
+            		<input type="text" name="key" id="key" placeholder="Key to decrypt" required="">
+            		</div>
+  
+                	<div class="form-group">
+                	<center><button type="submit">Decrypt</button></center>
+                	</div>
+          		</form>
 	</div>
 
 
