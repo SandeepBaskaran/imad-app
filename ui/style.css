@@ -24,7 +24,7 @@ figcaption.ratings a:hover
     }
 .divider 
 {
-    border-top:1px solid rgba(0,0,0,0);
+    border-top:1px solid transparent;
     }
 .emphasis 
 {
@@ -38,7 +38,7 @@ figcaption.ratings a:hover
 {
     margin-bottom:0;
     }
-span.tags 
+.tags 
 {
     background: #1abc9c;
     border-radius: 2px;
@@ -50,7 +50,7 @@ span.tags
 {
     background-color: #34495e;    
     box-shadow: none;
-    //-webkit-box-shadow: none;
+    
     width: 250px;
     margin-left: -125px;
     left: 50%;
