@@ -48,7 +48,7 @@ function createTemplate (data) {
                         <div class="w3-container">
                           <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i>Web Developer</p>
                           <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i> ${location} </p>
-                          <a href="mailto:sandeepbaskaran98@gmail.com" class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"> sandeepbaskaran98@gmail.com </a>
+                          <a href="mailto:sandeepbaskaran98@gmail.com" class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal">sandeepbaskaran98@gmail.com </a>
                           <p><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"></i> ${number} </p>
                           <hr>
                           <br>
