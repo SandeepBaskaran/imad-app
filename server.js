@@ -13,6 +13,10 @@ app.get('/404', function (req, res){
     res.send('ERROR:404 not found');
 })
 
+app.get('/profile', function (req, res) {
+  res.sendFile(path.join(__dirname, 'ui', 'profile.html'));
+});
+
 app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
 });
