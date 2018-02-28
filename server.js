@@ -5,7 +5,7 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
-var profile = {
+/*var profile = {
     title : 'Profile | Sandeep',
     location : 'TN, India',
     number : '+91 8056012098',
@@ -137,7 +137,7 @@ function createTemplate (data) {
                 </html> 
             `;
             return htmlTemplate;
-}
+}*/
 
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
