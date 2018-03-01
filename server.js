@@ -4,6 +4,10 @@ var express = require('express');
 var multer  = require('multer');
 var upload = multer({ dest: 'uploads/' });
 var crypto = require('crypto');
+
+var morgan = require('morgan');
+var path = require('path');
+
 var app = express();
 
 var stego = require('./stego');
