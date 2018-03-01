@@ -1,169 +1,169 @@
-var fs = require('fs');
-var PNG = require('pngjs').PNG;
 var express = require('express');
-var multer  = require('multer');
-var upload = multer({ dest: 'uploads/' });
-var crypto = require('crypto');
+var morgan = require('morgan');
+var path = require('path');
+
 var app = express();
+app.use(morgan('combined'));
 
-var stego = require('./stego');
+/*var profile = {
+    title : 'Profile | Sandeep',
+    location : 'TN, India',
+    number : '+91 8056012098',
+};
 
-
-app.use(express.static('static'));
-app.set('views', './views');
-app.set('view engine', 'jade');
+function createTemplate (data) {
+    var title = data.title;
+    var number = data.number;
+    var location = data.location;
+        var htmlTemplate = `    
+                <html>
+                <title> ${title} </title>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1">
+                <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+                <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+                <style>
+                html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
+                </style>
+                <body class="w3-light-grey">
+                
+                <!-- Page Container -->
+                <div class="w3-content w3-margin-top" style="max-width:1400px;">
+                
+                  <!-- The Grid -->
+                  <div class="w3-row-padding">
+                  
+                    <!-- Left Column -->
+                    <div class="w3-third">
+                    
+                      <div class="w3-white w3-text-grey w3-card-4">
+                        <div class="w3-display-container">
+                          <img src="https://pbs.twimg.com/profile_images/928926919273283584/hiXMkRqy_400x400.jpg" style="width:100%" alt="Avatar">
+                          <div class="w3-display-bottomleft w3-container w3-text-black">
+                            <h2>Sandeep Baskaran</h2>
+                          </div>
+                        </div>
+                        <br>
+                        <div class="w3-container">
+                          <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i>Web Developer</p>
+                          <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i> ${location} </p>
+                          <a href="mailto:sandeepbaskaran98@gmail.com" class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal">sandeepbaskaran98@gmail.com </a>
+                          <p><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"></i> ${number} </p>
+                          <hr>
+                          <br>
+                          <p class="w3-large w3-text-theme"><b><i class="fa fa-globe fa-fw w3-margin-right w3-text-teal"></i>Languages</b></p>
+                          <p>Tamil</p>
+                          <div class="w3-light-grey w3-round-xlarge">
+                            <div class="w3-round-xlarge w3-teal" style="height:24px;width:100%"></div>
+                          </div>
+                          <p>English</p>
+                          <div class="w3-light-grey w3-round-xlarge">
+                            <div class="w3-round-xlarge w3-teal" style="height:24px;width:100%"></div>
+                          </div>
+                          <p>Telugu (vocal)</p>
+                          <div class="w3-light-grey w3-round-xlarge">
+                            <div class="w3-round-xlarge w3-teal" style="height:24px;width:25%"></div>
+                          </div>
+                          <br>
+                        </div>
+                      </div><br>
+                
+                    <!-- End Left Column -->
+                    </div>
+                
+                    <!-- Right Column -->
+                    <div class="w3-twothird">
+                    
+                      <div class="w3-container w3-card w3-white w3-margin-bottom">
+                        <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Work Experience</h2>
+                        <div class="w3-container">
+                          <h5 class="w3-opacity"><b>Intern at ktech Ventures</b></h5>
+                          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Jan 2018 - <span class="w3-tag w3-teal w3-round">Current</span></h6>
+                          <hr>
+                        </div>
+                        <div class="w3-container">
+                          <h5 class="w3-opacity"><b>Web Developer / kiotek.net</b></h5>
+                          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Jan 2018 - <span class="w3-tag w3-teal w3-round">Current</span></h6>
+                          <hr>
+                        </div>
+                      </div>
+                
+                      <div class="w3-container w3-card w3-white">
+                        <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Education</h2>
+                        <div class="w3-container">
+                          <h5 class="w3-opacity"><b>Electronics &amp; Instrumentation Engineering </b></h5>
+                          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>2015 - <span class="w3-tag w3-teal w3-round">Current</span></h6>
+                          <p>Bachelor Degree</p>
+                        </div>
+                        <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Skills</h2>
+                        <div class="w3-container">
+                          <p>HTML</p>
+                          <div class="w3-light-grey w3-round-xlarge w3-small">
+                            <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:75%">75%</div>
+                          </div>
+                          <p>CSS</p>
+                          <div class="w3-light-grey w3-round-xlarge w3-small">
+                            <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:60%">
+                              <div class="w3-center w3-text-white">60%</div>
+                            </div>
+                          </div>
+                          <p>PHP</p>
+                          <div class="w3-light-grey w3-round-xlarge w3-small">
+                            <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:60%">60%</div>
+                          </div>
+                          <p>NodeJs</p>
+                          <div class="w3-light-grey w3-round-xlarge w3-small">
+                            <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:50%">50%</div>
+                          </div>
+                          <br>
+                        </div>
+                      </div>
+                
+                    <!-- End Right Column -->
+                    </div>
+                    
+                  <!-- End Grid -->
+                  </div>
+                  
+                  <!-- End Page Container -->
+                </div>
+                
+                <footer class="w3-container w3-teal w3-center w3-margin-top">
+                   <em>"Innovation distinguishes between a leader and a follower."</em><br /> - Steve Jobs
+                </footer>
+                
+                </body>
+                </html> 
+            `;
+            return htmlTemplate;
+}*/
 
 app.get('/', function (req, res) {
-    res.sendFile('index.html', {root: './ui'});
+  res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
-app.get('/encode', function (req, res) {
-    res.sendFile('encode.html', {root: './ui'});
+app.get('/404', function (req, res){
+    res.send('ERROR:404 not found');
+})
+
+app.get('/profile', function (req, res) {
+  res.send(createTemplate(profile));
 });
 
-app.post('/encode', upload.array('files', 2), function (req, res, next) {
-
-    console.log(req.files);
-    console.log(req.body);
-
-    //Output directories
-    var original_file_path = 'static/data/original_files/'+req.files[0].originalname;
-    var encoded_file_path = 'static/data/processed_files/'+req.files[0].originalname;
-
-    fs.rename(req.files[0].path, original_file_path, function(){
-
-        //Process image file
-        fs.createReadStream(original_file_path).pipe(new PNG({
-            filterType: 4
-        })).on('parsed', function() {
-
-            //stego.reformatPixelArrayToBufferData();
-            var pw = req.body.pw || null;
-            var processed;
-            if(req.body.encode_type === 'text') {
-                var text = req.body.text_data;
-                console.log('Processing text.');
-                if (pw){
-                    var encrypt = crypto.createCipher('aes-256-cbc', pw);
-                    text = encrypt.update(text, 'utf8', 'binary') + encrypt.final('binary');
-                }
-                //console.log(text);
-                processed = stego.encodeDataFromPixelArray(stego.parseImageBufferToPixelArray(this), text, 'text');
-            }
-            else if(req.body.encode_type === 'binary') {
-                console.log('Processing a binary file.');
-                var buffer = fs.readFileSync(req.files[1].path);
-                var stringified = JSON.stringify([req.files[1].originalname, buffer.toString('binary')]);
-                if (pw){
-                    var encrypt = crypto.createCipher('aes-256-cbc', pw);
-                    stringified = encrypt.update(stringified, 'binary', 'binary') + encrypt.final('binary');
-                }
-                processed = stego.encodeDataFromPixelArray(stego.parseImageBufferToPixelArray(this), stringified, 'text');
-            }
-
-            var n = 0;
-            for (var y = 0; y < this.height; y++) {
-                for (var x = 0; x < this.width; x++) {
-                    var idx = (this.width * y + x) << 2;
-
-                    if(n < processed.length) {
-                        this.data[idx] = processed[n].r;
-                        this.data[idx+1] = processed[n].g;
-                        this.data[idx+2] = processed[n].b;
-                        this.data[idx+3] = processed[n].alpha;
-                        n++;
-                    }
-
-                }
-            }
-
-            var stream = this.pack().pipe(fs.createWriteStream(encoded_file_path));
-            stream.on('finish', function(){
-                res.redirect('/data/processed_files/'+req.files[0].originalname);
-            });
-        });
-    });
-
+app.get('/ui/style.css', function (req, res) {
+  res.sendFile(path.join(__dirname, 'ui', 'style.css'));
 });
 
-app.get('/decode', function (req, res) {
-    res.sendFile('decode.html', {root: './ui'});
+app.get('/ui/madi.png', function (req, res) {
+  res.sendFile(path.join(__dirname, 'ui', 'madi.png'));
 });
 
-app.post('/decode', upload.single('original_image'), function (req, res, next) {
 
-    console.log(req.file);
-    console.log(req.body);
+// Do not change port, otherwise your app won't run on IMAD servers
+// Use 8080 only for local development if you already have apache running on 80
 
-
-    //Process image file
-    fs.createReadStream(req.file.path).pipe(new PNG({
-        filterType: 4
-    })).on('parsed', function() {
-
-        var decoded = stego.decodeDataFromPixelArray(stego.parseImageBufferToPixelArray(this), req.body.expected_type);
-        var pw = req.body.pw || null;
-
-        if(decoded.dataType === 'text') {
-            var text = decoded.data;
-            try {
-                if (pw) {
-                    var decrypt = crypto.createDecipher('aes-256-cbc', pw);
-                    text = decrypt.update(text, 'binary', 'utf8') + decrypt.final('utf8');
-                }
-                //console.log(text)
-                res.render('output', {
-                    text: text
-                });
-            }
-            catch (err) {
-                res.render('error', {
-                    text: 'Bad text password'
-                });
-            }
-        }
-        else {
-
-            try {
-                var data = decoded.data;
-                if (pw) {
-                    //console.log('entering try block, pw : ' + pw);
-                    var decrypt = crypto.createDecipher('aes-256-cbc', pw);
-                    //console.log('decrypt made');
-                    data = decrypt.update(decoded.data, 'binary', 'binary') + decrypt.final('binary');
-                }
-                //console.log('data decoded');
-                //console.log(data);
-                var parsed = JSON.parse(data);
-                //console.log('data parsed');
-                //parsed[0] file name
-                //parsed[1] the buffer as a base64 string
-                var filename = parsed[0];
-                data = new Buffer(parsed[1], 'binary');
-                var temp_file_name = 'temp/'+req.filename+parsed[0];
-
-                fs.mkdir('temp', function(){
-                    fs.writeFile(temp_file_name, data, 'binary', function(err){
-                        res.setHeader('Content-disposition', 'attachment; filename='+parsed[0]);
-                        res.sendFile(req.filename+parsed[0], {root: 'temp'}, function(){
-                            //file transport done, delete the temp file
-                            fs.unlink('temp/'+req.filename+parsed[0]);
-                        });
-                    });
-                });
-            }
-            catch (err) {
-                res.render('error', {
-                    text: 'Bad bin password'
-                });
-            }
-        }
-    });
-});
-
-var server = app.listen(process.env.PORT || 80, function () {
-    var host = process.env.HOST || '35.200.204.26';
-    var port = process.env.PORT || 80;
-
-    console.log('Example app listening at http://%s:%s', host, port);
+var port = 80;
+app.listen(port, function () {
+  console.log(`IMAD course app listening on port ${port}!`);
 });
