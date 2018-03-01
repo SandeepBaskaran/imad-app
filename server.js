@@ -161,10 +161,9 @@ app.post('/decode', upload.single('original_image'), function (req, res, next) {
     });
 });
 
-// Do not change port, otherwise your app won't run on IMAD servers
-// Use 8080 only for local development if you already have apache running on 80
+var server = app.listen(process.env.PORT || 80, function () {
+    var host = process.env.HOST || '0.0.0.0';
+    var port = process.env.PORT || 80;
 
-var port = 80;
-app.listen(port, function () {
-  console.log(`IMAD course app listening on port ${port}!`);
+    console.log('Example app listening at http://%s:%s', host, port);
 });
