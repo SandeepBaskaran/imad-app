@@ -14,11 +14,11 @@ app.set('views', './views')
 app.set('view engine', 'jade');
 
 app.get('/', function (req, res) {
-    res.sendFile('index.html', {root: './ui'});
+  res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
 app.get('/encode', function (req, res) {
-    res.sendFile('encode.html', {root: './ui'});
+    res.sendFile(path.join(__dirname, 'ui', 'encode.html'));
 });
 
 app.post('/encode', upload.array('files', 2), function (req, res, next) {
@@ -87,7 +87,7 @@ app.post('/encode', upload.array('files', 2), function (req, res, next) {
 });
 
 app.get('/decode', function (req, res) {
-    res.sendFile('decode.html', {root: './ui'});
+    res.sendFile(path.join(__dirname, 'ui', 'decode.html'));
 });
 
 app.post('/decode', upload.single('original_image'), function (req, res, next) {
