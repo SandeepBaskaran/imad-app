@@ -6,7 +6,7 @@ var upload = multer({ dest: 'uploads/' });
 var crypto = require('crypto');
 var app = express();
 
-var stego = require('./stego');
+var stego = require('stego');
 
 
 app.use(express.static('static'));
