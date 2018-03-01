@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>NASH: Decode</title>
+
+    <link href='https://fonts.googleapis.com/css?family=Syncopate' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+</head>
+<body>
+    <div class="container">
+        <div class="col-xs-6 text-center">
+
+            <a href="index"><button class="btn btn-info btn-block">Homepage</button></a>
+
+
+            <form method="post" enctype="multipart/form-data" id="form">
+                <h1>Decode</h1>
+                <br/>
+                    PNG image: <input type="file" name="original_image" accept="image/png">
+                <br/>
+                    Expected type:<select class="browser-default" name="expected_type" form="form">
+                    <option value="text">UTF-8 Text</option>
+                    <option value="binary">Binary file</option>
+                </select>
+                <br/>Password (Optional):<input type="password" name="pw">
+                <button style="display: block; margin-top: 15px;" class="btn waves-effect waves-light red" type="submit" name="action">Submit
+                    <i class="material-icons right">send</i>
+                </button>
+            </form>
+
+
+        </div>
+    </div>
+</body>
+</html>
