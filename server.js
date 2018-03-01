@@ -14,7 +14,7 @@ var stego = require('./stego');
 
 
 app.use(express.static('static'));
-app.set('views', './views')
+app.set('views', './views');
 app.set('view engine', 'jade');
 
 app.get('/', function (req, res) {
