@@ -4,25 +4,21 @@ var express = require('express');
 var multer  = require('multer');
 var upload = multer({ dest: 'uploads/' });
 var crypto = require('crypto');
-
-var morgan = require('morgan');
-var path = require('path');
-
 var app = express();
 
 var stego = require('./stego');
 
 
 app.use(express.static('static'));
-app.set('views', './views');
+app.set('views', './views')
 app.set('view engine', 'jade');
 
 app.get('/', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'index.html'));
+    res.sendFile('index.html', {root: './ui'});
 });
 
 app.get('/encode', function (req, res) {
-    res.sendFile(path.join(__dirname, 'ui', 'encode.html'));
+    res.sendFile('encode.html', {root: './ui'});
 });
 
 app.post('/encode', upload.array('files', 2), function (req, res, next) {
@@ -91,7 +87,7 @@ app.post('/encode', upload.array('files', 2), function (req, res, next) {
 });
 
 app.get('/decode', function (req, res) {
-    res.sendFile(path.join(__dirname, 'ui', 'decode.html'));
+    res.sendFile('decode.html', {root: './ui'});
 });
 
 app.post('/decode', upload.single('original_image'), function (req, res, next) {
@@ -164,6 +160,9 @@ app.post('/decode', upload.single('original_image'), function (req, res, next) {
         }
     });
 });
+
+// Do not change port, otherwise your app won't run on IMAD servers
+// Use 8080 only for local development if you already have apache running on 80
 
 var port = 80;
 app.listen(port, function () {
