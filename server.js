@@ -162,7 +162,7 @@ app.post('/decode', upload.single('original_image'), function (req, res, next) {
 });
 
 var server = app.listen(process.env.PORT || 80, function () {
-    var host = process.env.HOST || '0.0.0.0';
+    var host = process.env.HOST || '35.200.204.26';
     var port = process.env.PORT || 80;
 
     console.log('Example app listening at http://%s:%s', host, port);
