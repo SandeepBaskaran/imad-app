@@ -161,14 +161,6 @@ app.post('/decode', upload.single('original_image'), function (req, res, next) {
     });
 });
 
-/*var server = app.listen(process.env.PORT || 3000, function () {
-    var host = process.env.HOST || '0.0.0.0';
-    var port = process.env.PORT || 3000;
-
-    console.log('Example app listening at http://%s:%s', host, port);
-});
-*/
-
 var port = 80;
 app.listen(port, function () {
   console.log(`IMAD course app listening on port ${port}!`);
