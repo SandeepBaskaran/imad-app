@@ -69,7 +69,7 @@ stego.encodeByteInPixel = function(pixel, byte) {
         }
 
         // encode bit in appropriate position in appropriate channel
-        if (i == 0 || i == 1) {
+        if (i === 0 || i == 1) {
             pixel = stego.encodeBitInChannel(pixel, 'r', bit, i);
         }
         else if (i == 2 || i == 3) {
@@ -131,7 +131,7 @@ stego.decodeByteFromPixel = function(pixel) {
     for (var i = 0; i < 8; i++) {
 
         // decode bit from appropriate position in appropriate channel
-        if (i == 0 || i == 1) {
+        if (i === 0 || i == 1) {
             bit = stego.decodeBitFromChannel(pixel, 'r', i);
         }
         else if (i == 2 || i == 3) {
