@@ -141,7 +141,6 @@ function createTemplate (data) {
 
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
-  res.sendFile(path.join(__dirname, 'ui', 'nash1.png'));
 });
 
 app.get('/encode', function (req, res) {
