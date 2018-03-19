@@ -39,7 +39,7 @@ function createTemplate (data) {
                     
                       <div class="w3-white w3-text-grey w3-card-4">
                         <div class="w3-display-container">
-                          <img src="https://pbs.twimg.com/profile_banners/875262718000812032/1497606819/1500x500" style="width:100%" alt="Avatar">
+                          <img src="https://pbs.twimg.com/profile_banners/875262718000812032/1497606819/1500x500" style="width:100%" />
                           <div class="w3-display-bottomleft w3-container w3-text-black">
                             <h2>Sandeep Baskaran</h2>
                           </div>
