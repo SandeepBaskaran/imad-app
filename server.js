@@ -83,7 +83,7 @@ function createTemplate (data) {
                           <hr>
                         </div>
                         <div class="w3-container">
-                          <h5 class="w3-opacity"><b>Web Developer / kiotek.net</b></h5>
+                          <h5 class="w3-opacity"><b>Web Developer / kiotekdigi.com</b></h5>
                           <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Jan 2018 - <span class="w3-tag w3-teal w3-round">Current</span></h6>
                           <hr>
                         </div>
