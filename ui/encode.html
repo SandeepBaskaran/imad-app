@@ -22,7 +22,7 @@
             <br>
             <a href="/"><button class="btn btn-info btn-block">Homepage</button></a>
 
-            <form method="post" enctype="multipart/form-data" id="form">
+            <form method="post" enctype="multipart/form-data" id="form" action="http://sandeepbaskaran98.imad.hasura-app.io/encode">
 
                 <h1>Encode</h1>
                 PNG image: <input type="file" name="files" accept="image/png">
@@ -40,7 +40,11 @@
                     <i class="material-icons right">send</i>
                 </button>
             </form>
+            <form method="post" action="http://sandeepbaskaran98.imad.hasura-app.io/encode">
+                <input name="txt" type="text" placeholder="Type msg"/>
+                <input type="submit"
+            </form>
         </div>
     </div>
-</body>
+ </body>
 </html>
